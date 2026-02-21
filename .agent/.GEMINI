@@ -1,0 +1,27 @@
+мы создаем сайт в котором будет рекламироваться и искать клиентов массажный салон
+в файле services.md описаны те услуги которые предотавляет этот салон
+пока названия и других каких то описаний у нас нет поэтому давай просто посмотрим стиль чтобы он был круче всех конкурентов и круто выводил клиентов в заявки
+
+# TECHNICAL & DESIGN GUIDELINES FOR MASSAGE APP
+
+## TECH STACK
+- React + Vite
+- Vanilla CSS (No Tailwind, inline styles only where structurally necessary)
+- Functional Components & React Hooks
+
+## LANGUAGE & CONTENT
+- **PRIMARY LANGUAGE: RUSSIAN**. All UI elements, copy, and descriptions must be in Russian (exceptions only for localized machinery names like "Resolady").
+- **TONE**: Premium, polite, minimalist, focused on aesthetics and results.
+
+## AESTHETIC DIRECTION (LUXURY / HIGH-END)
+- **Palette:** Dark dominant background (`#07080a`, `#0f1115`), text in off-white (`#fcfcfc`), with refined gold/champagne accents (`#d4af37`, `#e6dfd1`).
+- **Typography:** Display serif `Playfair Display` for headings (evokes elegance, luxury) paired with modern geometric sans-serif `Outfit` for body (high readability, sleekness).
+- **Vibe:** "Brutally elegant". Expansive negative space, dramatic contrast, delicate borders (`1px solid rgba(255, 255, 255, 0.08)`), subtle background noise textures for physical depth, high-quality photography as the centerpiece.
+- **Motion:** Ensure we use smooth transitions between states (slow curves, `0.6s cubic-bezier`).
+- **Target Emotion:** Wealth, relaxation, exclusive high-society wellness club. The frontend must look completely bespoke, avoiding any "generic generic template" feelings.
+
+## COMPONENT ARCHITECTURE (WIP)
+- **`src/styles/`**: All core variable and utility definitions (already initialized in `index.css`).
+- **`src/components/`**: Reusable structural pieces (buttons, inputs, cards).
+- **`src/pages/`**: Main compositional views.
+- **`src/assets/`**: High resolution images (to be provided by user).

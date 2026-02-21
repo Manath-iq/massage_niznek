@@ -1,0 +1,144 @@
+.specialists-section {
+    padding: var(--sp-xl) 0;
+    background-color: var(--clr-bg-dark);
+    /* Contrast slightly from Services section */
+    position: relative;
+    overflow: hidden;
+}
+
+.specialists-header {
+    text-align: center;
+    margin-bottom: var(--sp-lg);
+}
+
+.specialists-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-sm);
+    margin-top: var(--sp-md);
+    align-items: start;
+}
+
+.specialist-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-sm);
+    /* tighter gap for mobile */
+    position: relative;
+}
+
+/* Luxury Asymmetry for Desktop */
+@media (min-width: 900px) {
+    .specialists-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--sp-xl);
+        /* Big gap for airy luxury feel */
+        align-items: center;
+        /* helps with offset positioning */
+    }
+
+    .specialist-card.offset-down {
+        transform: translateY(var(--sp-xl));
+    }
+
+    .specialist-card.offset-up {
+        transform: translateY(calc(var(--sp-md) * -1));
+    }
+}
+
+/* Image Wrapper and Effect */
+.spec-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    /* Editorial portrait ratio */
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background-color: var(--clr-bg-darker);
+    border: var(--border-delicate);
+}
+
+.spec-image,
+.spec-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: grayscale(20%) contrast(110%);
+}
+
+.spec-placeholder {
+    /* Fallback luxury gradient */
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(15, 17, 21, 1) 100%);
+}
+
+.spec-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(7, 8, 10, 0.9) 0%, rgba(7, 8, 10, 0) 50%);
+    opacity: 0.6;
+    transition: var(--transition-smooth);
+}
+
+/* Hover effects */
+.specialist-card:hover .spec-image {
+    transform: scale(1.05);
+    filter: grayscale(0%) contrast(100%);
+}
+
+.specialist-card:hover .spec-overlay {
+    opacity: 0.3;
+}
+
+/* Typography contents */
+.spec-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-xs);
+    position: relative;
+    z-index: 2;
+}
+
+.spec-name {
+    font-size: 1.2rem;
+    color: var(--clr-text-main);
+}
+
+.spec-role {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.65rem;
+    color: var(--clr-accent-gold);
+    margin-bottom: 0;
+}
+
+.spec-quote {
+    display: none;
+    /* Hide quote on mobile to save vertical space */
+}
+
+@media (min-width: 900px) {
+    .spec-name {
+        font-size: var(--font-large);
+    }
+
+    .spec-role {
+        font-size: 0.85rem;
+        letter-spacing: 0.15em;
+        margin-bottom: var(--sp-xs);
+    }
+
+    .spec-quote {
+        display: block;
+        font-size: 1.1rem;
+        font-style: italic;
+        color: var(--clr-text-muted);
+        line-height: 1.5;
+        border-left: 2px solid rgba(212, 175, 55, 0.3);
+        padding-left: var(--sp-sm);
+    }
+}

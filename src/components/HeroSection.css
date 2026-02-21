@@ -1,0 +1,302 @@
+.hero-editorial {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: var(--sp-xl);
+    background-color: var(--clr-bg-dark);
+    /* Ensure deep background */
+}
+
+/* Dynamic Background Elements */
+.hero-bg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    /* Behind text, above base background */
+}
+
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.15;
+    animation: drift 20s infinite alternate ease-in-out;
+    pointer-events: none;
+}
+
+.orb-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--clr-accent-gold) 0%, transparent 70%);
+    top: -10%;
+    right: -10%;
+    animation-delay: 0s;
+}
+
+.orb-2 {
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    bottom: -20%;
+    left: -20%;
+    animation-duration: 25s;
+    animation-delay: -5s;
+}
+
+.noise-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    z-index: 2;
+    pointer-events: none;
+    /* Basic noise pattern generated via loud gradient, but base64 image or specialized CSS filter is better */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+@keyframes drift {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-3vw, 5vh) scale(1.1);
+    }
+
+    100% {
+        transform: translate(4vw, -2vh) scale(0.95);
+    }
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
+    z-index: 10;
+}
+
+@media (min-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 60% 40%;
+        align-items: end;
+    }
+}
+
+.title-wrapper {
+    margin-bottom: var(--sp-lg);
+}
+
+.hero-super-title {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 15vw, var(--font-super));
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--clr-text-main);
+    text-transform: lowercase;
+    word-break: break-word;
+}
+
+.hero-super-title .line {
+    display: block;
+}
+
+.hero-super-title .indent-1 {
+    margin-left: 10%;
+}
+
+.hero-super-title .indent-2 {
+    margin-left: 20%;
+}
+
+@media (max-width: 900px) {
+    .hero-bg-container .orb-1 {
+        width: 150vw;
+        height: 150vw;
+        top: -10%;
+        left: -10%;
+        opacity: 0.25;
+    }
+
+    .hero-bg-container .orb-2 {
+        width: 120vw;
+        height: 120vw;
+        bottom: 0%;
+        right: -30%;
+        left: auto;
+        opacity: 0.3;
+    }
+
+    .title-wrapper {
+        text-align: center;
+        margin-bottom: var(--sp-sm);
+        position: relative;
+        top: -5vh;
+        /* Push title up slightly to balance */
+    }
+
+    .hero-super-title .indent-1,
+    .hero-super-title .indent-2 {
+        margin-left: 0;
+    }
+}
+
+.hero-super-title .offset-color {
+    color: var(--clr-accent-gold);
+    font-style: italic;
+    font-family: var(--font-display);
+    /* Base shadow removed, controlled by JS inline styles */
+}
+
+/* Interactive Glow Base */
+.interactive-glow {
+    display: inline-block;
+    transition: text-shadow 0.1s ease-out;
+    /* Smooth follow effect */
+}
+
+@media (max-width: 900px) {
+    .interactive-glow {
+        /* Default glow on mobile */
+        text-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+    }
+}
+
+.hero-meta {
+    max-width: 400px;
+    margin-left: auto;
+    padding-left: var(--sp-md);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 900px) {
+    .hero-meta {
+        margin-left: 0;
+        margin: 0 auto;
+        padding-left: 0;
+        border-left: none;
+        text-align: center;
+        align-items: center;
+    }
+}
+
+.hero-philosophy {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--clr-text-muted);
+    margin-bottom: var(--sp-md);
+}
+
+@media (max-width: 900px) {
+    .hero-philosophy {
+        font-size: 1rem;
+    }
+}
+
+/* Scroll Indicator Link (Mobile First approach) */
+.scroll-indicator-link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-sm);
+    margin-top: var(--sp-sm);
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .scroll-indicator-link {
+        align-items: center;
+        margin: 0 auto;
+        padding-top: var(--sp-md);
+    }
+}
+
+.scroll-text {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.75rem;
+    color: var(--clr-text-main);
+    transition: var(--transition-smooth);
+    opacity: 0.8;
+}
+
+.scroll-indicator-link:hover .scroll-text {
+    color: var(--clr-accent-gold);
+    opacity: 1;
+}
+
+.scroll-line-container {
+    width: 1px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+@media (max-width: 900px) {
+    .scroll-line-container {
+        height: 80px;
+    }
+}
+
+.scroll-line-animated {
+    width: 100%;
+    height: 50%;
+    background-color: var(--clr-accent-gold);
+    position: absolute;
+    top: -50%;
+    left: 0;
+    animation: scrollDown 2s cubic-bezier(0.77, 0, 0.175, 1) infinite;
+}
+
+@keyframes scrollDown {
+    0% {
+        top: -50%;
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+/* Base fade animations */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
