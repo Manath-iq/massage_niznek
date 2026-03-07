@@ -7,14 +7,14 @@ const SPECIALISTS = [
         name: 'Анна',
         role: 'Мастер аппаратного и ручного массажа',
         quote: '«Комплексный подход к вашему телу — от инновационных технологий до исцеляющей силы рук.»',
-        imageSrc: '/images/anna.jpg', // Поместите фото Анны по пути public/images/anna.jpg
+        imageSrc: 'images/anna.jpg', // Поместите фото Анны по пути public/images/anna.jpg
     },
     {
         id: 2,
         name: 'Эльмира',
         role: 'Мастер аппаратного массажа',
         quote: '«Инновационные методики для достижения безупречного силуэта и вашего идеального самочувствия.»',
-        imageSrc: '/images/elmira.jpg', // Поместите фото Эльмиры по пути public/images/elmira.jpg
+        imageSrc: 'images/elmira.jpg', // Поместите фото Эльмиры по пути public/images/elmira.jpg
     }
 ];
 
