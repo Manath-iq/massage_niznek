@@ -69,14 +69,24 @@ export default function LocalSection() {
                             </div>
                         </div>
 
-                        <a
-                            href={yandexRouteUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="route-btn btn-primary"
-                        >
-                            Проложить маршрут
-                        </a>
+                        <div className="local-buttons">
+                            <a
+                                href={yandexRouteUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="route-btn btn-primary"
+                            >
+                                Проложить маршрут
+                            </a>
+                            <a
+                                href="https://go.2gis.com/zQ4BF"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="route-btn btn-secondary"
+                            >
+                                Открыть в 2ГИС
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
