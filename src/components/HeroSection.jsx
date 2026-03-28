@@ -24,7 +24,11 @@ export default function HeroSection() {
 
             <div className="container hero-grid">
                 <div className="title-wrapper">
-                    <h1 className="hero-super-title fade-in-up">
+                    {/* SEO H1 — скрытый для поисковиков, невидимый пользователю */}
+                    <h1 className="sr-only">Аппаратный массаж в Нижнекамске — Resolady, Эндосфера, Прессотерапия</h1>
+
+                    {/* Художественный заголовок — только визуальный */}
+                    <div className="hero-super-title fade-in-up">
                         <span className="line indent-0">Искусство</span>
                         <span className="line indent-1">Идеального</span>
                         <span
@@ -39,7 +43,7 @@ export default function HeroSection() {
                         >
                             Тела.
                         </span>
-                    </h1>
+                    </div>
                 </div>
 
                 <div className="hero-meta fade-in-up delay-2">

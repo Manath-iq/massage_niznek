@@ -1,0 +1,119 @@
+/* ===== LocalSection ===== */
+.local-section {
+    padding: var(--sp-xl) 0;
+    background: var(--clr-bg-dark);
+    position: relative;
+}
+
+.local-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 900px) {
+    .local-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: start;
+    }
+}
+
+/* Map */
+.map-wrapper {
+    height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    background: rgba(255, 255, 255, 0.03);
+    position: relative;
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* Info block */
+.local-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.local-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.local-detail:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.local-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    line-height: 1;
+}
+
+.local-label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    color: var(--clr-accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    margin-bottom: 0.35rem;
+}
+
+.local-value {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--clr-text-main);
+    font-weight: 400;
+    line-height: 1.4;
+    display: block;
+}
+
+.local-phone {
+    color: var(--clr-accent-gold);
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.local-phone:hover {
+    opacity: 0.8;
+}
+
+.local-hint {
+    font-size: 0.85rem;
+    color: var(--clr-text-muted);
+    font-weight: 300;
+    margin-top: 0.25rem;
+    line-height: 1.5;
+}
+
+.route-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .map-wrapper {
+        height: 300px;
+    }
+}
