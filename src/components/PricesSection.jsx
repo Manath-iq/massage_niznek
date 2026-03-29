@@ -61,7 +61,7 @@ export default function PricesSection() {
                 </div>
 
                 <div className="packages-block">
-                    <h3 className="packages-title">Выгодные курсы и пакеты</h3>
+                    <h3 className="packages-title">Выгодные курсы и пакеты <sup>*</sup></h3>
                     <div className="packages-grid">
                         {PACKAGES.map((pkg, i) => (
                             <div key={i} className="package-card">
@@ -79,6 +79,7 @@ export default function PricesSection() {
                             </div>
                         ))}
                     </div>
+                    <p className="packages-footnote">* Действует не у всех специалистов</p>
                 </div>
             </div>
         </section>

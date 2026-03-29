@@ -55,7 +55,7 @@ export default function LocalSection() {
                             <span className="local-icon">🕐</span>
                             <div>
                                 <span className="local-label">Режим работы</span>
-                                <p className="local-value">Ежедневно, 9:00 — 21:00</p>
+                                <p className="local-value">Ежедневно, 8:00 — 21:00</p>
                                 <p className="local-hint">Без выходных и перерывов</p>
                             </div>
                         </div>

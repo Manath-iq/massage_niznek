@@ -127,3 +127,33 @@
     position: relative;
     z-index: 10;
 }
+
+.contact-action {
+    display: flex;
+    gap: var(--sp-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: var(--sp-xl);
+}
+
+.btn-secondary-contact {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    background: transparent;
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: rgba(252, 252, 252, 0.7);
+    border-radius: 4px;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-secondary-contact:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: rgba(212, 175, 55, 0.7);
+    color: var(--clr-text-main);
+}

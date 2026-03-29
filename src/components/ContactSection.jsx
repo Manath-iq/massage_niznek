@@ -33,6 +33,7 @@ export default function ContactSection() {
 
                     <div className="contact-action text-center">
                         <a href="https://wa.me/79178568489" target="_blank" rel="noopener noreferrer" className="btn-primary">Записаться в WhatsApp</a>
+                        <a href="https://max.ru/79178568489" target="_blank" rel="noopener noreferrer" className="btn-secondary-contact">Написать в Max</a>
                     </div>
                 </div>
             </div>

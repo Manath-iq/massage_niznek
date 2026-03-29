@@ -3,6 +3,7 @@ import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import ServicesSection from './components/ServicesSection';
 import PricesSection from './components/PricesSection';
+import SpecialistsSection from './components/SpecialistsSection';
 import FAQSection from './components/FAQSection';
 import TrustSection from './components/TrustSection';
 import LocalSection from './components/LocalSection';
@@ -16,6 +17,7 @@ function App() {
       <AboutSection />
       <ServicesSection />
       <PricesSection />
+      <SpecialistsSection />
       <FAQSection />
       <TrustSection />
       <LocalSection />
