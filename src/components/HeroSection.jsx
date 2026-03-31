@@ -1,21 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import './HeroSection.css';
 
+const VIDEO_SRC = '/videos/start_screen.mp4';
+
 export default function HeroSection() {
-    // Optional: Interactive cursor effect
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
+    // Mouse parallax для заголовка
     useEffect(() => {
-        const handleMouseMove = (e) => {
-            setMousePos({ x: e.clientX, y: e.clientY });
-        };
-        window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
+        const onMove = (e) => setMousePos({ x: e.clientX, y: e.clientY });
+        window.addEventListener('mousemove', onMove);
+        return () => window.removeEventListener('mousemove', onMove);
     }, []);
 
     return (
         <section className="hero-editorial">
-            {/* Dynamic CSS Background */}
+
+            {/* Видео-фон — только десктоп */}
+            <div className="hero-video-bg">
+                <video
+                    src={VIDEO_SRC}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    className="hero-video hero-video--active"
+                />
+                <div className="hero-video-overlay" />
+            </div>
+
+            {/* CSS-фон — мобильный резерв + glow-эффекты */}
             <div className="hero-bg-container">
                 <div className="glow-orb orb-1"></div>
                 <div className="glow-orb orb-2"></div>
@@ -24,10 +39,7 @@ export default function HeroSection() {
 
             <div className="container hero-grid">
                 <div className="title-wrapper">
-                    {/* SEO H1 — скрытый для поисковиков, невидимый пользователю */}
                     <h1 className="sr-only">Аппаратный массаж в Нижнекамске — Resolady, Эндосфера, Прессотерапия</h1>
-
-                    {/* Художественный заголовок — только визуальный */}
                     <div className="hero-super-title fade-in-up">
                         <span className="line indent-0">Искусство</span>
                         <span className="line indent-1">Идеального</span>
@@ -59,7 +71,6 @@ export default function HeroSection() {
                 </div>
             </div>
 
-            {/* Decorative vertical line */}
             <div className="vertical-axis"></div>
         </section>
     );
