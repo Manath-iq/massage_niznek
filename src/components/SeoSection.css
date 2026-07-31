@@ -1,0 +1,50 @@
+/* ═══════ Развёрнутые тексты ═══════ */
+
+.seo__grid {
+    display: grid;
+    gap: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+@media (min-width: 900px) {
+    .seo__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.seo__item {
+    padding-top: var(--gap-sm);
+    border-top: 1px solid var(--line);
+}
+
+.seo__title {
+    font-size: 1.2rem;
+    line-height: 1.25;
+    margin-bottom: var(--gap-sm);
+    color: var(--text);
+}
+
+.seo__sub {
+    font-family: var(--font-sans);
+    font-size: var(--fs-label);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-3);
+    margin: 1.25rem 0 0.5rem;
+    font-weight: 600;
+}
+
+.seo__item p {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--text-2);
+    margin-bottom: 0.85rem;
+}
+
+.seo__item p:last-child {
+    margin-bottom: 0;
+}
+
+.seo__item strong {
+    color: var(--text);
+    font-weight: 600;
+}

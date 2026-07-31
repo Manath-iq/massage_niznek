@@ -1,88 +1,97 @@
 import React from 'react';
 import './LocalSection.css';
+import { ADDRESS, HOURS, PHONE, PHONE_HREF, LINKS } from '../constants';
+import { IconPin, IconPhone, IconClock, IconCar } from './Icon';
+
+const DETAILS = [
+    {
+        Icon: IconPin,
+        label: 'Адрес',
+        value: ADDRESS,
+        hint: 'Рядом с микрорайонами Химиков и Мира, удобный подъезд из центра',
+    },
+    {
+        Icon: IconPhone,
+        label: 'Телефон',
+        value: PHONE,
+        href: PHONE_HREF,
+    },
+    {
+        Icon: IconClock,
+        label: 'Режим работы',
+        value: HOURS,
+        hint: 'Без выходных и перерывов',
+    },
+    {
+        Icon: IconCar,
+        label: 'Парковка',
+        value: 'Бесплатная',
+        hint: 'Парковочные места рядом с входом',
+    },
+];
 
 export default function LocalSection() {
-    const yandexMapSrc =
-        'https://yandex.ru/map-widget/v1/?um=constructor%3A&amp;source=constructor&amp;ll=51.823%2C55.634&amp;z=16&amp;pt=51.823,55.634,pm2rdm~51.823,55.634,pm2rdm';
-
-    const yandexRouteUrl =
-        'https://yandex.ru/maps/236/nizhnekamsk/?ll=51.821653%2C55.650978&z=17&pt=51.821653%2C55.650978';
-
     return (
-        <section id="location" className="local-section">
+        <section id="location" className="local section section--soft">
             <div className="container">
-                <div className="section-header text-center">
-                    <h2 className="section-title">Как нас найти</h2>
-                    <p className="section-subtitle">Массажный салон в Нижнекамске — удобное расположение</p>
+                <div className="section-head section-head--split">
+                    <div>
+                        <p className="eyebrow">Контакты</p>
+                        <h2 className="section-title">Как нас найти</h2>
+                    </div>
+                    <p className="section-note">
+                        Массажный салон в Нижнекамске — пр. Вахитова, 43. Удобный подъезд и бесплатная
+                        парковка у входа.
+                    </p>
                 </div>
 
-                <div className="local-content">
-                    {/* Карта */}
-                    <div className="map-wrapper">
+                <div className="local__grid">
+                    <div className="local__map" data-reveal>
                         <iframe
                             title="Карта: Massage Niznek — пр. Вахитова, 43, Нижнекамск"
                             src="https://yandex.ru/map-widget/v1/?ll=51.821653%2C55.650978&z=17&pt=51.821653%2C55.650978,pm2rdm"
-                            width="100%"
-                            height="100%"
-                            frameBorder="0"
-                            allowFullScreen
                             loading="lazy"
+                            allowFullScreen
                         />
                     </div>
 
-                    {/* Контактный блок */}
-                    <div className="local-info">
-                        <div className="local-detail">
-                            <span className="local-icon">📍</span>
-                            <div>
-                                <span className="local-label">Адрес</span>
-                                <p className="local-value">г. Нижнекамск, пр. Вахитова, 43</p>
-                                <p className="local-hint">Рядом с микрорайонами Химиков и Мира, удобный подъезд из центра города</p>
-                            </div>
-                        </div>
+                    <div className="local__info" data-reveal style={{ '--reveal-delay': '0.08s' }}>
+                        <ul className="local__details">
+                            {DETAILS.map((d) => (
+                                <li key={d.label} className="detail">
+                                    <d.Icon className="detail__icon" />
+                                    <div className="detail__body">
+                                        <span className="detail__label">{d.label}</span>
+                                        {d.href ? (
+                                            <a
+                                                href={d.href}
+                                                className="detail__value detail__value--link"
+                                            >
+                                                {d.value}
+                                            </a>
+                                        ) : (
+                                            <p className="detail__value">{d.value}</p>
+                                        )}
+                                        {d.hint && <p className="detail__hint">{d.hint}</p>}
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
 
-                        <div className="local-detail">
-                            <span className="local-icon">📞</span>
-                            <div>
-                                <span className="local-label">Телефон</span>
-                                <a href="tel:+79178568489" className="local-value local-phone">
-                                    +7 (917) 856-84-89
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className="local-detail">
-                            <span className="local-icon">🕐</span>
-                            <div>
-                                <span className="local-label">Режим работы</span>
-                                <p className="local-value">Ежедневно, 8:00 — 21:00</p>
-                                <p className="local-hint">Без выходных и перерывов</p>
-                            </div>
-                        </div>
-
-                        <div className="local-detail">
-                            <span className="local-icon">🚗</span>
-                            <div>
-                                <span className="local-label">Парковка</span>
-                                <p className="local-value">Бесплатная</p>
-                                <p className="local-hint">Парковочные места рядом с входом</p>
-                            </div>
-                        </div>
-
-                        <div className="local-buttons">
+                        <div className="local__buttons">
                             <a
-                                href={yandexRouteUrl}
+                                href={LINKS.yandexRoute}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="route-btn btn-primary"
+                                className="btn btn--primary"
                             >
                                 Проложить маршрут
                             </a>
                             <a
-                                href="https://go.2gis.com/zQ4BF"
+                                href={LINKS.twogis}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="route-btn btn-secondary"
+                                className="btn btn--ghost"
                             >
                                 Открыть в 2ГИС
                             </a>

@@ -1,180 +1,145 @@
-/* ===== PricesSection ===== */
-.prices-section {
-    padding: var(--sp-xl) 0;
-    background: linear-gradient(180deg, var(--clr-bg-darker) 0%, rgba(15, 17, 21, 0.95) 100%);
-    position: relative;
+/* ═══════ Цены ═══════ */
+
+.prices__list {
+    border-top: 1px solid var(--line);
 }
 
-.section-header {
-    margin-bottom: 3rem;
-}
-
-.prices-grid {
+.price-group {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-bottom: 3rem;
+    gap: var(--gap-sm);
+    padding: clamp(1.5rem, 3vw, 2.25rem) 0;
+    border-bottom: 1px solid var(--line);
 }
 
-@media (min-width: 768px) {
-    .prices-grid {
-        grid-template-columns: repeat(3, 1fr);
+@media (min-width: 800px) {
+    .price-group {
+        grid-template-columns: 15rem 1fr;
+        gap: var(--gap-lg);
+        align-items: start;
     }
 }
 
-.price-category {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    border-radius: 16px;
-    padding: 2rem;
-    transition: border-color 0.3s ease;
+.price-group__title {
+    font-family: var(--font-sans);
+    font-size: var(--fs-label);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    font-weight: 600;
+    padding-top: 0.35rem;
 }
 
-.price-category:hover {
-    border-color: rgba(212, 175, 55, 0.3);
-}
-
-.price-category-title {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: var(--clr-accent-gold);
-    margin-bottom: 1.25rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
-}
-
-.price-list {
+.price-group__items {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
 }
 
-.price-item {
+.price-row {
     display: flex;
     align-items: baseline;
-    gap: 0.5rem;
+    justify-content: space-between;
+    gap: var(--gap-sm);
 }
 
-.price-name {
-    font-size: 0.95rem;
-    color: rgba(252, 252, 252, 0.75);
-    font-weight: 300;
-    flex-shrink: 0;
-    max-width: 75%;
+.price-row__name {
+    color: var(--text);
+    font-size: 1.02rem;
+    line-height: 1.45;
 }
 
-.price-dots {
-    flex: 1;
-    border-bottom: 1px dotted rgba(255, 255, 255, 0.15);
-    margin-bottom: 3px;
-}
-
-.price-value {
-    font-size: 1rem;
-    color: var(--clr-accent-gold);
-    font-weight: 500;
+.price-row__value {
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--text);
     white-space: nowrap;
-    font-family: var(--font-sans);
+    font-variant-numeric: tabular-nums;
 }
 
-/* Packages block */
-.packages-block {
-    margin-top: 2rem;
+/* ——— Пакеты ——— */
+
+.packages {
+    margin-top: clamp(3rem, 8vw, 5rem);
 }
 
-.packages-title {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--clr-text-main);
-    text-align: center;
-    margin-bottom: 2rem;
+.packages__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--gap-sm);
+    margin-bottom: var(--gap-md);
 }
 
-.packages-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+.packages__title {
+    font-size: var(--fs-h3);
 }
 
-@media (min-width: 768px) {
-    .packages-grid {
-        grid-template-columns: repeat(3, 1fr);
+.packages__note {
+    font-size: var(--fs-sm);
+    color: var(--text-3);
+}
+
+/* До 900px — свайп-лента (.rail), поэтому сетку объявляем только с десктопа */
+@media (min-width: 900px) {
+    .packages__grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--gap-md);
     }
 }
 
-.package-card {
-    background: rgba(212, 175, 55, 0.05);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: 16px;
-    padding: 2rem;
+@media (max-width: 899px) {
+    .packages__grid {
+        --rail-card: 82%;
+        --rail-card-wide: 48%;
+    }
+}
+
+.package {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    transition: all 0.3s ease;
+    gap: 0.5rem;
+    padding: clamp(1.5rem, 3vw, 2rem);
+    background: var(--bg-elev);
+    border-radius: var(--radius-lg);
+    transition: transform 0.5s var(--ease), background-color 0.5s var(--ease);
 }
 
-.package-card:hover {
-    background: rgba(212, 175, 55, 0.08);
-    border-color: rgba(212, 175, 55, 0.4);
-    transform: translateY(-3px);
+.package:hover {
+    transform: translateY(-4px);
+    background: #262119;
 }
 
-.package-saving {
-    display: inline-block;
-    background: var(--clr-accent-gold);
-    color: var(--clr-bg-darker);
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.3rem 0.75rem;
-    border-radius: 100px;
-    width: fit-content;
+.package__saving {
+    font-size: var(--fs-label);
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    color: var(--accent);
+    font-weight: 600;
 }
 
-.package-name {
-    font-family: var(--font-sans);
-    font-size: 0.95rem;
-    color: rgba(252, 252, 252, 0.8);
-    font-weight: 400;
-    line-height: 1.5;
+.package__name {
+    font-size: 1.3rem;
+    line-height: 1.2;
+    margin-top: 0.35rem;
+}
+
+.package__detail {
+    font-size: var(--fs-sm);
+    color: var(--text-3);
     flex: 1;
 }
 
-.package-price {
+.package__price {
     font-family: var(--font-display);
-    font-size: 1.8rem;
-    color: var(--clr-accent-gold);
-    font-weight: 400;
+    font-size: 2rem;
+    color: var(--text);
+    line-height: 1;
+    margin: 0.75rem 0 0.35rem;
+    font-variant-numeric: tabular-nums;
 }
 
-.package-btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    background: transparent;
-    border: 1px solid rgba(212, 175, 55, 0.5);
-    color: var(--clr-accent-gold);
-    border-radius: 4px;
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: all 0.3s ease;
-    text-align: center;
-    cursor: pointer;
-}
-
-.package-btn:hover {
-    background: var(--clr-accent-gold);
-    color: var(--clr-bg-darker);
-}
-
-.packages-footnote {
-    text-align: center;
-    font-size: 0.78rem;
-    color: rgba(252, 252, 252, 0.35);
-    margin-top: 1rem;
-    letter-spacing: 0.03em;
+.package__btn {
+    margin-top: 0.6rem;
 }

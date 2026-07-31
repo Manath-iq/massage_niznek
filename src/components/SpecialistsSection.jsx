@@ -5,49 +5,56 @@ const SPECIALISTS = [
     {
         id: 1,
         name: 'Анна',
-        role: 'Мастер аппаратного и ручного массажа',
-        quote: '«Комплексный подход к вашему телу — от инновационных технологий до исцеляющей силы рук.»',
-        imageSrc: 'images/anna.jpg', // Поместите фото Анны по пути public/images/anna.jpg
+        role: 'Аппаратный и ручной массаж',
+        quote: 'Комплексный подход к вашему телу — от инновационных технологий до исцеляющей силы рук.',
+        imageSrc: 'images/anna.jpg',
     },
     {
         id: 2,
         name: 'Эльмира',
-        role: 'Мастер аппаратного массажа',
-        quote: '«Инновационные методики для достижения безупречного силуэта и вашего идеального самочувствия.»',
-        imageSrc: 'images/elmira.jpg', // Поместите фото Эльмиры по пути public/images/elmira.jpg
-    }
+        role: 'Аппаратный массаж',
+        quote: 'Инновационные методики для достижения безупречного силуэта и вашего идеального самочувствия.',
+        imageSrc: 'images/elmira.jpg',
+    },
 ];
 
 export default function SpecialistsSection() {
     return (
-        <section className="specialists-section">
+        <section id="team" className="team section">
             <div className="container">
-                <div className="specialists-header">
-                    <h2 className="section-title">Искусство прикосновения</h2>
-                    <p className="section-subtitle">Познакомьтесь с нашими мастерами</p>
+                <div className="section-head section-head--split">
+                    <div>
+                        <p className="eyebrow">Мастера</p>
+                        <h2 className="section-title">Искусство прикосновения</h2>
+                    </div>
+                    <p className="section-note">
+                        Работают с аппаратами ежедневно и подбирают программу под ваше состояние, а не
+                        по шаблону.
+                    </p>
                 </div>
 
-                <div className="specialists-grid">
-                    {SPECIALISTS.map((specialist, index) => (
-                        <div
-                            key={specialist.id}
-                            className={`specialist-card ${index % 2 === 0 ? 'offset-down' : 'offset-up'}`}
+                <div className="team__grid">
+                    {SPECIALISTS.map((s, i) => (
+                        <article
+                            key={s.id}
+                            className="member"
+                            data-reveal
+                            style={{ '--reveal-delay': `${i * 0.08}s` }}
                         >
-                            <div className="spec-image-wrapper">
-                                {specialist.imageSrc ? (
-                                    <img src={specialist.imageSrc} alt={specialist.name} className="spec-image" />
-                                ) : (
-                                    <div className="spec-placeholder" />
-                                )}
-                                <div className="spec-overlay"></div>
+                            <div className="member__media">
+                                <img
+                                    src={s.imageSrc}
+                                    alt={`${s.name} — мастер массажа, Massage Niznek`}
+                                    className="member__img"
+                                    loading="lazy"
+                                />
                             </div>
-
-                            <div className="spec-content">
-                                <h3 className="spec-name">{specialist.name}</h3>
-                                <p className="spec-role gold-glow-text">{specialist.role}</p>
-                                <p className="spec-quote">{specialist.quote}</p>
+                            <div className="member__body">
+                                <h3 className="member__name">{s.name}</h3>
+                                <p className="member__role">{s.role}</p>
+                                <p className="member__quote">«{s.quote}»</p>
                             </div>
-                        </div>
+                        </article>
                     ))}
                 </div>
             </div>

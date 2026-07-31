@@ -1,0 +1,75 @@
+/* ═══════ Финальный призыв ═══════ */
+
+.cta-section {
+    padding: clamp(2.5rem, 7vw, 4.5rem) 0;
+    background: var(--bg);
+}
+
+.cta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-md);
+    padding: clamp(2rem, 6vw, 3.5rem);
+    background: var(--bg-elev);
+    border-radius: var(--radius-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta::after {
+    content: '';
+    position: absolute;
+    inset: auto -10% -60% auto;
+    width: 60%;
+    aspect-ratio: 1;
+    background: radial-gradient(circle, rgba(200, 169, 106, 0.14), transparent 65%);
+    pointer-events: none;
+}
+
+@media (min-width: 900px) {
+    .cta {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--gap-lg);
+    }
+}
+
+.cta__title {
+    font-size: var(--fs-h2);
+    margin-bottom: 0.5rem;
+}
+
+.cta__lead {
+    color: var(--text-2);
+    max-width: 44ch;
+}
+
+.cta__phone {
+    display: inline-block;
+    margin-top: var(--gap-sm);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    transition: color 0.3s var(--ease);
+}
+
+.cta__phone:hover {
+    color: var(--accent);
+}
+
+.cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 420px) {
+    .cta__actions .btn {
+        flex: 1 1 100%;
+    }
+}

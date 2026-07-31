@@ -1,77 +1,81 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './HeroSection.css';
+import { LINKS, ADDRESS } from '../constants';
+import { IconStar } from './Icon';
 
 const VIDEO_SRC = '/videos/start_screen.mp4';
+// Постер показывается мгновенно, пока подгружается видео — от него зависит LCP
+const POSTER_SRC = '/videos/hero_poster.jpg';
 
 export default function HeroSection() {
-    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
-    // Mouse parallax для заголовка
-    useEffect(() => {
-        const onMove = (e) => setMousePos({ x: e.clientX, y: e.clientY });
-        window.addEventListener('mousemove', onMove);
-        return () => window.removeEventListener('mousemove', onMove);
-    }, []);
-
     return (
-        <section className="hero-editorial">
-
-            {/* Видео-фон — только десктоп */}
-            <div className="hero-video-bg">
+        <section className="hero" id="top">
+            <div className="hero__media">
                 <video
                     src={VIDEO_SRC}
+                    poster={POSTER_SRC}
                     autoPlay
                     loop
                     muted
                     playsInline
-                    preload="auto"
-                    className="hero-video hero-video--active"
+                    preload="metadata"
+                    className="hero__video"
                 />
-                <div className="hero-video-overlay" />
+                <div className="hero__scrim" />
             </div>
 
-            {/* CSS-фон — мобильный резерв + glow-эффекты */}
-            <div className="hero-bg-container">
-                <div className="glow-orb orb-1"></div>
-                <div className="glow-orb orb-2"></div>
-                <div className="noise-overlay"></div>
-            </div>
+            <div className="hero__inner container">
+                <p className="hero__eyebrow">
+                    <span>Massage Niznek</span>
+                    <span className="hero__dot" />
+                    <span>{ADDRESS.replace('г. Нижнекамск, ', '')}</span>
+                </p>
 
-            <div className="container hero-grid">
-                <div className="title-wrapper">
-                    <h1 className="sr-only">Аппаратный массаж в Нижнекамске — Resolady, Эндосфера, Прессотерапия</h1>
-                    <div className="hero-super-title fade-in-up">
-                        <span className="line indent-0">Искусство</span>
-                        <span className="line indent-1">Идеального</span>
-                        <span
-                            className="line indent-2 offset-color interactive-glow"
-                            style={{
-                                textShadow: `
-                                    ${(mousePos.x - window.innerWidth / 2) * 0.05}px 
-                                    ${(mousePos.y - window.innerHeight / 2) * 0.05}px 
-                                    30px rgba(212, 175, 55, 0.4)
-                                `
-                            }}
-                        >
-                            Тела.
-                        </span>
-                    </div>
-                </div>
+                <h1 className="hero__title">
+                    Аппаратный массаж{' '}
+                    <span className="hero__title-sub">в Нижнекамске</span>
+                    {/* хвост прежнего H1 — важен для поиска, визуально не нужен */}
+                    <span className="sr-only"> — Resolady, Эндосфера, Прессотерапия</span>
+                </h1>
 
-                <div className="hero-meta fade-in-up delay-2">
-                    <p className="hero-philosophy">
-                        Отдых, визуальная эстетика и передовые аппаратные технологии для глубокого, осознанного преображения.
-                    </p>
-                    <a href="#services" className="scroll-indicator-link">
-                        <span className="scroll-text">Познакомиться с услугами</span>
-                        <div className="scroll-line-container">
-                            <div className="scroll-line-animated"></div>
-                        </div>
+                <p className="hero__lead">
+                    Resolady, эндосфера, прессотерапия и ручной массаж. Спокойное пространство,
+                    внимательные мастера и видимый результат уже с третьей процедуры.
+                </p>
+
+                <div className="hero__actions">
+                    <a
+                        href={LINKS.max}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn--primary"
+                    >
+                        Записаться
+                    </a>
+                    <a href="#services" className="btn btn--ghost">
+                        Смотреть услуги
                     </a>
                 </div>
+
+                <ul className="hero__facts">
+                    <li className="hero__fact">
+                        <IconStar className="hero__star" />
+                        <span>
+                            <strong>4.9</strong> в Яндексе
+                        </span>
+                    </li>
+                    <li className="hero__fact">
+                        <strong>400+</strong> клиентов
+                    </li>
+                    <li className="hero__fact">
+                        <strong>8:00 — 21:00</strong> без выходных
+                    </li>
+                </ul>
             </div>
 
-            <div className="vertical-axis"></div>
+            <a href="#about" className="hero__scroll" aria-label="Листать дальше">
+                <span className="hero__scroll-line" />
+            </a>
         </section>
     );
 }

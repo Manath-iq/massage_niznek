@@ -1,44 +1,61 @@
 import React from 'react';
 import './ContactSection.css';
+import { ADDRESS, HOURS, PHONE, PHONE_HREF, LINKS, NAV } from '../constants';
+
+const SOCIALS = [
+    { href: LINKS.max, label: 'Max' },
+    { href: LINKS.whatsapp, label: 'WhatsApp' },
+    { href: LINKS.telegram, label: 'Telegram' },
+    { href: LINKS.instagram, label: 'Instagram' },
+];
 
 export default function ContactSection() {
     return (
-        <footer className="contact-section">
-            <div className="container contact-container">
-                <div className="contact-info">
-                    <h2 className="section-title text-center">Ждем вас</h2>
-                    <p className="contact-description text-center">
-                        Оставьте суету за порогом. Наш клуб — это место, где время принадлежит только вам.
-                    </p>
-
-                    <div className="contact-details-grid">
-                        <div className="contact-item">
-                            <span className="contact-label">Адрес</span>
-                            <p className="contact-value">г. Нижнекамск, пр. Вахитова, 43</p>
-                        </div>
-
-                        <div className="contact-item">
-                            <span className="contact-label">Телефон</span>
-                            <a href="tel:+79178568489" className="contact-value" style={{ textDecoration: 'none', color: 'inherit' }}>+7 (917) 856-84-89</a>
-                        </div>
+        <footer className="footer">
+            <div className="container">
+                {/* Подвал */}
+                <div className="footer__grid">
+                    <div className="footer__col">
+                        <span className="footer__brand">Massage Niznek</span>
+                        <p className="footer__muted">Аппаратный и ручной массаж в Нижнекамске</p>
                     </div>
 
-                    <div className="social-links-centered">
-                        <a href="https://instagram.com/massage_niznek" target="_blank" rel="noopener noreferrer" className="social-link">Instagram</a>
-                        <span className="social-separator"></span>
-                        <a href="https://wa.me/79178568489" target="_blank" rel="noopener noreferrer" className="social-link">WhatsApp</a>
-                        <span className="social-separator"></span>
-                        <a href="https://t.me/massage_niznek" target="_blank" rel="noopener noreferrer" className="social-link">Telegram</a>
+                    <div className="footer__col">
+                        <span className="footer__label">Контакты</span>
+                        <a href={PHONE_HREF} className="footer__phone">
+                            {PHONE}
+                        </a>
+                        <p className="footer__muted">{ADDRESS}</p>
+                        <p className="footer__muted">{HOURS}</p>
                     </div>
 
-                    <div className="contact-action text-center">
-                        <a href="https://max.ru/u/f9LHodD0cOJq-lhuRmgl67A-f-L2tIH06XPcu5fknwt5YT-Lwnqn-UtN5Tw" target="_blank" rel="noopener noreferrer" className="btn-primary">Написать в Max</a>
-                        <a href="https://wa.me/79178568489" target="_blank" rel="noopener noreferrer" className="btn-secondary-contact">Записаться в WhatsApp</a>
+                    <div className="footer__col">
+                        <span className="footer__label">Разделы</span>
+                        <nav className="footer__links">
+                            {NAV.map((item) => (
+                                <a key={item.href} href={item.href}>
+                                    {item.label}
+                                </a>
+                            ))}
+                        </nav>
+                    </div>
+
+                    <div className="footer__col">
+                        <span className="footer__label">Мы на связи</span>
+                        <nav className="footer__links">
+                            {SOCIALS.map((s) => (
+                                <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer">
+                                    {s.label}
+                                </a>
+                            ))}
+                        </nav>
                     </div>
                 </div>
-            </div>
-            <div className="footer-bottom">
-                <p>© 2026 Massage Niznek. Разработано с фокусом на эстетику.</p>
+
+                <div className="footer__bottom">
+                    <p>© 2026 Massage Niznek</p>
+                    <p>г. Нижнекамск, пр. Вахитова, 43</p>
+                </div>
             </div>
         </footer>
     );

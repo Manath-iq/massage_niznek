@@ -1,114 +1,101 @@
 import React from 'react';
 import ServiceCard from './ServiceCard';
 import './ServicesSection.css';
-import srcResolady from '../assets/resolady.PNG';
-import srcEndosphere from '../assets/endosphere.PNG';
-import srcPresso from '../assets/presso.PNG';
-import srcMiostimul from '../assets/miostimul.PNG';
-import srcManual from '../assets/manual.PNG';
+import { LINKS } from '../constants';
+import { IconArrow } from './Icon';
+import srcResolady from '../assets/resolady.webp';
+import srcEndosphere from '../assets/endosphere.webp';
+import srcPresso from '../assets/presso.webp';
+import srcMiostimul from '../assets/miostimul.webp';
+import srcManual from '../assets/manual.webp';
 
 const SERVICES_DATA = [
     {
         id: 1,
         title: 'Resolady',
-        subtitle: 'Вакуумный массаж, кавитация и RF-лифтинг',
-        description: 'Аппаратная методика для эффективного моделирования фигуры. Борется с целлюлитом и дряблостью кожи без хирургии.',
+        subtitle: 'Вакуум, кавитация и RF-лифтинг',
+        description:
+            'Аппаратная методика для эффективного моделирования фигуры. Борется с целлюлитом и дряблостью кожи без хирургии.',
         imageAlt: 'Процедура Resolady',
-        imageSrc: srcResolady
+        imageSrc: srcResolady,
+        price: '2 000 ₽',
     },
     {
         id: 2,
         title: 'Эндосфера',
         subtitle: 'Мягкий лимфодренаж и микровибрация',
-        description: 'Создает эффект "лимфатического насоса", улучшает кровообращение и снимает мышечное напряжение без боли.',
+        description:
+            'Создаёт эффект «лимфатического насоса», улучшает кровообращение и снимает мышечное напряжение без боли.',
         imageAlt: 'Аппарат Эндосфера',
-        imageSrc: srcEndosphere
+        imageSrc: srcEndosphere,
+        price: '2 000 ₽',
     },
     {
         id: 3,
         title: 'Прессотерапия',
         subtitle: 'Пневмокомпрессионный массаж',
-        description: 'Выводит лишнюю жидкость, токсины, уменьшает отеки и дарит ощущение абсолютной легкости.',
+        description:
+            'Выводит лишнюю жидкость и токсины, уменьшает отёки и дарит ощущение абсолютной лёгкости.',
         imageAlt: 'Манжеты прессотерапии',
-        imageSrc: srcPresso
+        imageSrc: srcPresso,
+        price: '1 000 ₽',
     },
     {
         id: 4,
         title: 'Миостимуляция',
-        subtitle: 'Скульптурирование импульсами тока',
-        description: 'Заставляет мышцы сокращаться. Сжигает жир, моделирует контуры и тонизирует тело, пока вы отдыхаете.',
+        subtitle: 'Скульптурирование импульсами',
+        description:
+            'Заставляет мышцы сокращаться. Сжигает жир, моделирует контуры и тонизирует тело, пока вы отдыхаете.',
         imageAlt: 'Электростимуляция',
-        imageSrc: srcMiostimul
+        imageSrc: srcMiostimul,
+        price: '1 000 ₽',
     },
     {
         id: 5,
         title: 'Ручной массаж',
         subtitle: 'Классические техники',
-        description: 'Глубокая проработка мышц и фасций. Идеальное расслабление: для снятия зажимов в теле или лица.',
+        description:
+            'Глубокая проработка мышц и фасций. Идеальное расслабление: для снятия зажимов в теле или лица.',
         imageAlt: 'Сеанс ручного массажа',
-        imageSrc: srcManual
-    }
+        imageSrc: srcManual,
+        price: 'от 2 000 ₽',
+    },
 ];
 
 export default function ServicesSection() {
     return (
-        <section id="services" className="services-section">
-            <div className="container services-header text-center">
-                <h2 className="section-title">Искусство преображения</h2>
-                <p className="section-subtitle">Свайпните, чтобы ознакомиться с услугами</p>
-            </div>
+        <section id="services" className="services section">
+            <div className="container">
+                <div className="section-head section-head--split">
+                    <div>
+                        <p className="eyebrow">Услуги</p>
+                        <h2 className="section-title">Искусство преображения</h2>
+                    </div>
+                    <p className="section-note">
+                        Пять методик — аппаратные и ручные. Подбираем программу под задачу: отёки,
+                        целлюлит, тонус кожи или снятие напряжения.
+                    </p>
+                </div>
 
-            <div className="carousel-container">
-                <div className="services-carousel">
+                <div className="services__grid rail">
                     {SERVICES_DATA.map((service, index) => (
-                        <ServiceCard
-                            key={service.id}
-                            title={service.title}
-                            subtitle={service.subtitle}
-                            description={service.description}
-                            imageAlt={service.imageAlt}
-                            imageSrc={service.imageSrc}
-                            cardNumber={`0${index + 1}`}
-                        />
+                        <ServiceCard key={service.id} index={index} {...service} />
                     ))}
                 </div>
-            </div>
 
-            {/* SEO-блоки: текстовый контент для поисковиков */}
-            <div className="seo-blocks container">
-
-                <article id="apparatnyi-massazh" className="seo-block">
-                    <h2 className="seo-block-title">Аппаратный массаж в Нижнекамске</h2>
-                    <div className="seo-block-content">
-                        <p>Аппаратный массаж — это современная альтернатива ручным методикам, которая действует точнее, глубже и даёт более стойкий результат. В нашем салоне в Нижнекамске вы найдёте два флагманских аппарата: <strong>Resolady</strong> и <strong>Эндосферу</strong>.</p>
-                        <p><strong>Resolady</strong> объединяет вакуумный массаж, кавитацию и RF-лифтинг в одной процедуре. Вакуум разрушает жировые отложения и запускает дренаж лимфы, кавитация ультразвуком воздействует на глубокие слои жировой ткани, а радиочастотный лифтинг стимулирует выработку коллагена и подтягивает кожу. Эффективен для коррекции живота, бёдер, ягодиц и рук.</p>
-                        <p><strong>Эндосфера</strong> — компрессионно-вибрационный аппаратный массаж. 50 вращающихся силиконовых сфер мягко сжимают и «раскатывают» ткани без боли. Запускает лимфатический отток, устраняет застои жидкости, улучшает тонус и текстуру кожи. Особенно эффективна при второй и третьей стадии целлюлита.</p>
-                        <h3 className="seo-block-subtitle">Показания и результат</h3>
-                        <p>Целлюлит, дряблость кожи, локальные жировые отложения, отёчность, снижение тонуса. Рекомендуемый курс: 8–10 сеансов с интервалом 5–7 дней. Первые изменения — уже после 3–4 процедур. Противопоказания: беременность, онкология, тромбофлебит, острые воспаления.</p>
-                    </div>
-                </article>
-
-                <article id="limfodrenazh" className="seo-block">
-                    <h2 className="seo-block-title">Лимфодренажный массаж и прессотерапия в Нижнекамске</h2>
-                    <div className="seo-block-content">
-                        <p>Лимфодренажный массаж — ключевая процедура для тех, кто страдает от отёков, тяжести в ногах или хочет ускорить восстановление после тренировок. В Massage Niznek доступны два вида: аппаратный (Эндосфера) и пневмокомпрессионный (прессотерапия).</p>
-                        <p><strong>Прессотерапия</strong> работает с помощью специальных манжет. Воздух закачивается волнами по естественному движению лимфы. Процедура мягко выводит токсины, лишнюю жидкость и продукты метаболизма из тканей. Идеально после тренировок, при синдроме усталых ног и отёках.</p>
-                        <p>Прессотерапия — одна из самых безопасных процедур в нашем меню. Практически нет противопоказаний, не требует реабилитации и даёт моментальное ощущение лёгкости. Многие совмещают её с Resolady или Эндосферой для усиленного эффекта коррекции фигуры.</p>
-                        <h3 className="seo-block-subtitle">Курс и эффект</h3>
-                        <p>Для снятия отёков достаточно 3–5 сеансов. В рамках программы похудения — курс 8–10 процедур. Стоимость прессотерапии в Нижнекамске — 1 000 ₽ за сеанс.</p>
-                    </div>
-                </article>
-
-                <article id="ruchnoi-massazh" className="seo-block">
-                    <h2 className="seo-block-title">Ручной массаж в Нижнекамске</h2>
-                    <div className="seo-block-content">
-                        <p>Ручной массаж на всё тело незаменим там, где нужна точная индивидуальная работа с мышцами, фасциями и триггерными точками. Наши специалисты владеют классическими и глубокотканными техниками, снимающими мышечный спазм и возвращающими лёгкость в теле.</p>
-                        <p>Стоимость ручного массажа на всё тело в Нижнекамске — от 2 000 ₽ (женский) и от 2 300 ₽ (мужской). Продолжительность — 60 минут. Техника подбирается индивидуально: расслабляющий, тонизирующий или акцент на проблемные зоны (спина, шея, ноги).</p>
-                        <h3 className="seo-block-subtitle">Кому подходит</h3>
-                        <p>Сидячая работа, хроническое напряжение спины и шеи, стресс, восстановление после нагрузок. Ручной массаж отлично сочетается с аппаратными методиками — например, курс Resolady + ручной массаж даёт комплексный результат: коррекция фигуры и глубокое расслабление.</p>
-                    </div>
-                </article>
-
+                <div className="services__foot">
+                    <p className="services__foot-text">
+                        Не уверены, что подойдёт именно вам? Подскажем в переписке за пару минут.
+                    </p>
+                    <a
+                        href={LINKS.max}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="link-arrow"
+                    >
+                        Задать вопрос и записаться <IconArrow />
+                    </a>
+                </div>
             </div>
         </section>
     );
