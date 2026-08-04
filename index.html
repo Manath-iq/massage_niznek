@@ -130,6 +130,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Prata&display=swap" rel="stylesheet">
 
     <meta name="theme-color" content="#141210" />
+
+    <!-- Анимации появления включаются только при работающем JS: без него
+         пререндеренный контент должен остаться видимым. -->
+    <script>document.documentElement.classList.add('js')</script>
   </head>
   <body>
     <div id="root"></div>

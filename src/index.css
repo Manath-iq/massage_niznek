@@ -345,14 +345,17 @@ button {
 
 /* ═══════ Появление при скролле ═══════ */
 
-[data-reveal] {
+/* Класс .js ставится инлайн-скриптом в <head>. Без него (робот без JS,
+   ошибка загрузки бандла) блоки просто видны — прятать нечего, показывать
+   их обратно будет некому. */
+.js [data-reveal] {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
   transition-delay: var(--reveal-delay, 0s);
 }
 
-[data-reveal].is-visible {
+.js [data-reveal].is-visible {
   opacity: 1;
   transform: none;
 }
@@ -362,7 +365,7 @@ button {
     scroll-behavior: auto;
   }
 
-  [data-reveal] {
+  .js [data-reveal] {
     opacity: 1;
     transform: none;
     transition: none;

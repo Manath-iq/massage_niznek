@@ -5,7 +5,7 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', '.ssr-build']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [
@@ -24,6 +24,13 @@ export default defineConfig([
     },
     rules: {
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+    },
+  },
+  {
+    // Скрипты сборки выполняются в Node, а не в браузере.
+    files: ['scripts/**/*.js'],
+    languageOptions: {
+      globals: globals.node,
     },
   },
 ])
