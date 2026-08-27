@@ -109,6 +109,26 @@ export default function PricesSection() {
                             </article>
                         ))}
                     </div>
+
+                    <div className="promo" data-reveal>
+                        <div className="promo__text">
+                            <p className="promo__eyebrow">Акция</p>
+                            <h4 className="promo__title">Приведи друга</h4>
+                            <p className="promo__lead">
+                                Друг приходит на первую процедуру по вашей рекомендации — вы
+                                получаете <strong>сеанс аппаратного массажа лица в подарок</strong>.
+                                Сколько друзей привели — столько подарков.
+                            </p>
+                        </div>
+                        <a
+                            href={LINKS.max}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn--primary promo__btn"
+                        >
+                            Участвовать
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>

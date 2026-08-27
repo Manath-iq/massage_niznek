@@ -143,3 +143,59 @@
 .package__btn {
     margin-top: 0.6rem;
 }
+
+/* ——— Акция «Приведи друга» ——— */
+
+.promo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--gap-md);
+    margin-top: var(--gap-md);
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    background: var(--accent-wash);
+    border: 1px solid rgba(200, 169, 106, 0.28);
+    border-radius: var(--radius-lg);
+}
+
+.promo__text {
+    display: grid;
+    gap: 0.4rem;
+    max-width: 46rem;
+}
+
+.promo__eyebrow {
+    font-size: var(--fs-label);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.promo__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    line-height: 1.15;
+}
+
+.promo__lead {
+    font-size: var(--fs-sm);
+    color: var(--text-2);
+    line-height: 1.6;
+}
+
+.promo__lead strong {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.promo__btn {
+    flex: none;
+}
+
+@media (max-width: 599px) {
+    .promo__btn {
+        width: 100%;
+    }
+}
