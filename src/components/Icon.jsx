@@ -59,6 +59,14 @@ export function IconArrow(props) {
     );
 }
 
+export function IconArrowUpRight(props) {
+    return (
+        <svg {...base} width={14} height={14} {...props}>
+            <path d="M7 17 17 7M8 7h9v9" />
+        </svg>
+    );
+}
+
 export function IconStar({ filled = true, ...props }) {
     return (
         <svg

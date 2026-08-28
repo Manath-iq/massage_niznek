@@ -1,6 +1,7 @@
 import React from 'react';
 import './ContactSection.css';
 import { ADDRESS, HOURS, PHONE, PHONE_HREF, LINKS, NAV } from '../constants';
+import { IconArrowUpRight } from './Icon';
 
 const SOCIALS = [
     { href: LINKS.max, label: 'Max' },
@@ -53,8 +54,24 @@ export default function ContactSection() {
                 </div>
 
                 <div className="footer__bottom">
-                    <p>© 2026 Massage Niznek</p>
-                    <p>г. Нижнекамск, пр. Вахитова, 43</p>
+                    <div className="footer__bottom-info">
+                        <p>© 2026 Massage Niznek</p>
+                        <p>г. Нижнекамск, пр. Вахитова, 43</p>
+                    </div>
+
+                    <a
+                        className="footer__credit"
+                        href="https://manath.site"
+                        target="_blank"
+                        rel="noopener"
+                        title="Manath — разработка сайтов под ключ"
+                    >
+                        <span className="footer__credit-label">Дизайн и разработка сайта</span>
+                        <span className="footer__credit-name">
+                            Manath
+                            <IconArrowUpRight className="footer__credit-arrow" />
+                        </span>
+                    </a>
                 </div>
             </div>
         </footer>
