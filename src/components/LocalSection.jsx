@@ -48,7 +48,7 @@ export default function LocalSection() {
                 <div className="local__grid">
                     <div className="local__map" data-reveal>
                         <iframe
-                            title="Карта: Massage Niznek — пр. Вахитова, 43, Нижнекамск"
+                            title="Карта: Massage — пр. Вахитова, 43, Нижнекамск"
                             src="https://yandex.ru/map-widget/v1/?ll=51.821653%2C55.650978&z=17&pt=51.821653%2C55.650978,pm2rdm"
                             loading="lazy"
                             allowFullScreen

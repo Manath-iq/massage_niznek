@@ -17,7 +17,7 @@ export default function ContactSection() {
                 {/* Подвал */}
                 <div className="footer__grid">
                     <div className="footer__col">
-                        <span className="footer__brand">Massage Niznek</span>
+                        <span className="footer__brand">Massage</span>
                         <p className="footer__muted">Аппаратный и ручной массаж в Нижнекамске</p>
                     </div>
 
@@ -55,7 +55,7 @@ export default function ContactSection() {
 
                 <div className="footer__bottom">
                     <div className="footer__bottom-info">
-                        <p>© 2026 Massage Niznek</p>
+                        <p>© 2026 Massage</p>
                         <p>г. Нижнекамск, пр. Вахитова, 43</p>
                     </div>
 

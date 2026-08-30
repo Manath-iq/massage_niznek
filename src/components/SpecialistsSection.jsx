@@ -51,7 +51,7 @@ export default function SpecialistsSection() {
                             <div className="member__media">
                                 <img
                                     src={s.imageSrc}
-                                    alt={`${s.name} — мастер массажа, Massage Niznek`}
+                                    alt={`${s.name} — мастер массажа, Massage`}
                                     className="member__img"
                                     loading="lazy"
                                     width="900"

@@ -30,18 +30,23 @@ const PRICES = [
 ];
 
 const PACKAGES = [
-    { name: 'Антицеллюлитный курс', detail: '10 сеансов Resolady', price: 18000, saving: 2000 },
+    {
+        name: 'Антицеллюлитный курс',
+        detail: '10 сеансов Resolady — десятый в подарок',
+        price: 18000,
+        badge: '9 + 1 в подарок',
+    },
     {
         name: 'Лимфодренаж после тренировок',
-        detail: '10 сеансов Эндосферы',
+        detail: '10 сеансов Эндосферы — десятый в подарок',
         price: 18000,
-        saving: 2000,
+        badge: '9 + 1 в подарок',
     },
     {
         name: 'Комплекс «Стройность»',
         detail: 'Resolady + прессотерапия × 5',
         price: 14000,
-        saving: 1000,
+        badge: 'Экономия 1 000 ₽',
     },
 ];
 
@@ -57,8 +62,8 @@ export default function PricesSection() {
                         <h2 className="section-title">Прайс-лист</h2>
                     </div>
                     <p className="section-note">
-                        Прозрачные цены без скрытых доплат. Курс выгоднее разовых сеансов —
-                        экономия до 2 000 ₽.
+                        Прозрачные цены без скрытых доплат. На курсах из 10 процедур
+                        десятая — в подарок.
                     </p>
                 </div>
 
@@ -82,7 +87,8 @@ export default function PricesSection() {
                     <div className="packages__head">
                         <h3 className="packages__title">Курсы и пакеты</h3>
                         <p className="packages__note">
-                            Экономия до 2 000 ₽ на курсе. * Действует не у всех специалистов
+                            Платите за 9 процедур, десятая в подарок. * Действует не у всех
+                            специалистов
                         </p>
                     </div>
 
@@ -94,7 +100,7 @@ export default function PricesSection() {
                                 data-reveal
                                 style={{ '--reveal-delay': `${i * 0.07}s` }}
                             >
-                                <p className="package__saving">Экономия {rub(pkg.saving)}</p>
+                                <p className="package__saving">{pkg.badge}</p>
                                 <h4 className="package__name">{pkg.name}</h4>
                                 <p className="package__detail">{pkg.detail}</p>
                                 <p className="package__price">{rub(pkg.price)}</p>

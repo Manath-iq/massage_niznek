@@ -26,7 +26,7 @@ export default function HeroSection() {
 
             <div className="hero__inner container">
                 <p className="hero__eyebrow">
-                    <span>Massage Niznek</span>
+                    <span>Massage</span>
                     <span className="hero__dot" />
                     <span>{ADDRESS.replace('г. Нижнекамск, ', '')}</span>
                 </p>

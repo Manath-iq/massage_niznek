@@ -24,8 +24,8 @@ export default function SiteHeader() {
         <>
             <header className={`site-header ${scrolled ? 'is-scrolled' : ''}`}>
                 <div className="site-header__inner">
-                    <a href="#top" className="wordmark" aria-label="Massage Niznek — на главную">
-                        <span className="wordmark__name">Massage&nbsp;Niznek</span>
+                    <a href="#top" className="wordmark" aria-label="Massage — на главную">
+                        <span className="wordmark__name">Massage</span>
                         <span className="wordmark__city">Нижнекамск</span>
                     </a>
 

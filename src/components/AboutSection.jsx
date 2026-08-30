@@ -16,7 +16,7 @@ export default function AboutSection() {
                 <div className="about__media" data-reveal>
                     <img
                         src={srcAbout}
-                        alt="Интерьер массажного салона Massage Niznek в Нижнекамске"
+                        alt="Интерьер массажного салона Massage в Нижнекамске"
                         className="about__photo"
                         loading="lazy"
                     />
