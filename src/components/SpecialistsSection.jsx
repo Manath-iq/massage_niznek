@@ -16,6 +16,13 @@ const SPECIALISTS = [
         quote: 'Инновационные методики для достижения безупречного силуэта и вашего идеального самочувствия.',
         imageSrc: 'images/elmira.jpg',
     },
+    {
+        id: 3,
+        name: 'Ульяна',
+        role: 'Аппаратный массаж',
+        quote: 'Каждая программа выстроена под ваше состояние — мягко, последовательно и с видимым результатом.',
+        imageSrc: 'images/ulyana.jpg',
+    },
 ];
 
 export default function SpecialistsSection() {
@@ -33,7 +40,7 @@ export default function SpecialistsSection() {
                     </p>
                 </div>
 
-                <div className="team__grid">
+                <div className="team__rail rail">
                     {SPECIALISTS.map((s, i) => (
                         <article
                             key={s.id}
@@ -47,6 +54,8 @@ export default function SpecialistsSection() {
                                     alt={`${s.name} — мастер массажа, Massage Niznek`}
                                     className="member__img"
                                     loading="lazy"
+                                    width="900"
+                                    height="1200"
                                 />
                             </div>
                             <div className="member__body">

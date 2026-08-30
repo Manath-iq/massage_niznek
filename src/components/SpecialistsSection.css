@@ -1,14 +1,35 @@
 /* ═══════ Мастера ═══════ */
 
-.team__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: clamp(1rem, 3vw, 3rem);
+/* До 900px раскладку задаёт утилита .rail (свайп-лента).
+   С десктопа — та же лента, но карточки шире и снап мягкий. */
+.team__rail {
+    --rail-card: 78%;
+    --rail-card-wide: 46%;
 }
 
-@media (max-width: 560px) {
-    .team__grid {
-        gap: 1rem;
+@media (min-width: 900px) {
+    .team__rail {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x proximity;
+        scroll-padding-left: var(--page-x);
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: clamp(1.25rem, 3vw, 3rem);
+        /* лента идёт во всю ширину экрана, мимо полей контейнера */
+        margin-inline: calc(var(--page-x) * -1);
+        padding-inline: var(--page-x);
+    }
+
+    .team__rail::-webkit-scrollbar {
+        display: none;
+    }
+
+    .team__rail > * {
+        flex: 0 0 clamp(260px, 30%, 400px);
+        scroll-snap-align: start;
     }
 }
 
@@ -22,14 +43,6 @@
     overflow: hidden;
     background: var(--bg-elev);
     aspect-ratio: 3 / 4;
-}
-
-/* на широких экранах портрет 3/4 становится гигантским — подрезаем */
-@media (min-width: 900px) {
-    .member__media {
-        aspect-ratio: 4 / 5;
-        max-height: 560px;
-    }
 }
 
 .member__img {
