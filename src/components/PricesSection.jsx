@@ -30,12 +30,12 @@ const PRICES = [
 ];
 
 const PACKAGES = [
-    { name: 'Антицеллюлитный курс', detail: '10 сеансов Resolady', price: 19000, saving: 1000 },
+    { name: 'Антицеллюлитный курс', detail: '10 сеансов Resolady', price: 18000, saving: 2000 },
     {
         name: 'Лимфодренаж после тренировок',
         detail: '10 сеансов Эндосферы',
-        price: 19000,
-        saving: 1000,
+        price: 18000,
+        saving: 2000,
     },
     {
         name: 'Комплекс «Стройность»',
@@ -57,8 +57,8 @@ export default function PricesSection() {
                         <h2 className="section-title">Прайс-лист</h2>
                     </div>
                     <p className="section-note">
-                        Прозрачные цены без скрытых доплат. Любой курс выгоднее разовых сеансов
-                        на 1 000 ₽.
+                        Прозрачные цены без скрытых доплат. Курс выгоднее разовых сеансов —
+                        экономия до 2 000 ₽.
                     </p>
                 </div>
 
@@ -82,7 +82,7 @@ export default function PricesSection() {
                     <div className="packages__head">
                         <h3 className="packages__title">Курсы и пакеты</h3>
                         <p className="packages__note">
-                            Экономия 1 000 ₽ на каждом курсе. * Действует не у всех специалистов
+                            Экономия до 2 000 ₽ на курсе. * Действует не у всех специалистов
                         </p>
                     </div>
 
